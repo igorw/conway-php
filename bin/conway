@@ -57,15 +57,24 @@ $temp_dir = sys_get_temp_dir().'/'.mt_rand();
 system(sprintf('rm -rf %s', escapeshellarg($temp_dir)));
 mkdir($temp_dir, 0777, true);
 
+$pixel_size = 5;
+
 foreach (igorw\conway\run($world, $n) as $i => $world) {
-    $im = imagecreate(isset($world[0]) ? count($world[0]) : 0, count($world));
+    $im = imagecreate(
+        count($world[0])*$pixel_size,
+        count($world)*$pixel_size
+    );
     imagecolorallocate($im, 0, 0, 0);
     $white = imagecolorallocate($im, 255, 255, 255);
 
     foreach ($world as $y => $row) {
         foreach ($row as $x => $cell) {
             if ($cell) {
-                imagesetpixel($im, $x, $y, $white);
+                foreach (range(0, $pixel_size) as $yp) {
+                    foreach (range(0, $pixel_size) as $xp) {
+                        imagesetpixel($im, $pixel_size*$x+$xp, $pixel_size*$y+$yp, $white);
+                    }
+                }
             }
         }
     }
