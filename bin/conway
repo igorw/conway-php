@@ -1,0 +1,83 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../vendor/docopt/docopt/src/docopt.php';
+
+$doc = <<<DOC
+Conway's Game of Life.
+
+Usage:
+  machine run    [--width=WIDTH] [--height=HEIGHT] [-n=INF] [--] <file>
+  machine gif    [--width=WIDTH] [--height=HEIGHT] [-n=INF] [--] <file> <out>
+  machine (-h | --help)
+
+Options:
+  -h --help         Show this screen.
+  --width=          Width of the world.
+  --height=         Height of the world.
+  -n=               Number of generations/iterations.
+
+DOC;
+
+$args = Docopt\docopt($doc);
+
+if (!file_exists($args['<file>'])) {
+    echo "ERROR: Non-existent file {$args['<file>']} provided.\n";
+    exit(1);
+}
+
+$width  = isset($args['--width']) ? (int) $args['--width'] : 120;
+$height = isset($args['--height']) ? (int) $args['--height'] : 50;
+$n      = isset($args['-n']) ? (int) $args['-n'] : INF;
+
+$world = require $args['<file>'];
+
+foreach (range(0, $height) as $y) {
+    foreach (range(0, $width) as $x) {
+        if (!isset($world[$y][$x])) {
+            $world[$y][$x] = 0;
+        }
+    }
+}
+
+if ($args['run']) {
+    foreach (igorw\conway\run($world, $n) as $world) {
+        system('clear');
+        igorw\conway\print_world($world);
+        usleep(500000);
+    }
+    exit(0);
+}
+
+// gif
+
+$temp_dir = sys_get_temp_dir().'/'.mt_rand();
+
+system(sprintf('rm -rf %s', escapeshellarg($temp_dir)));
+mkdir($temp_dir, 0777, true);
+
+foreach (igorw\conway\run($world, $n) as $i => $world) {
+    $im = imagecreate(isset($world[0]) ? count($world[0]) : 0, count($world));
+    imagecolorallocate($im, 0, 0, 0);
+    $white = imagecolorallocate($im, 255, 255, 255);
+
+    foreach ($world as $y => $row) {
+        foreach ($row as $x => $cell) {
+            if ($cell) {
+                imagesetpixel($im, $x, $y, $white);
+            }
+        }
+    }
+
+    ob_start();
+    imagegif($im);
+    $gif = ob_get_clean();
+
+    file_put_contents("$temp_dir/$i.gif", $gif);
+}
+
+system(sprintf('gifsicle --delay=100 %s/*.gif > %s',
+    escapeshellarg($temp_dir),
+    escapeshellarg($args['<out>'])));
+system(sprintf('rm -rf %s', escapeshellarg($temp_dir)));

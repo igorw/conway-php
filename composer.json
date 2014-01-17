@@ -1,0 +1,21 @@
+{
+    "name": "igorw/conway",
+    "description": "Conway's Game of Life in PHP.",
+    "keywords": ["game-of-life", "conway"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Igor Wiedler",
+            "email": "igor@wiedler.ch"
+        }
+    ],
+    "require": {
+        "nikic/iter": "~1.0"
+    },
+    "require-dev": {
+        "docopt/docopt": "dev-master"
+    },
+    "autoload": {
+        "files": ["src/conway.php"]
+    }
+}
