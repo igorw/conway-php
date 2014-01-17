@@ -45,7 +45,7 @@ if ($args['run']) {
     foreach (igorw\conway\run($world, $n) as $world) {
         system('clear');
         igorw\conway\print_world($world);
-        usleep(500000);
+        usleep(50000);
     }
     exit(0);
 }
