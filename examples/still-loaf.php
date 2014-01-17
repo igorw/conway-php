@@ -1,11 +1,12 @@
 <?php
 
-$loaf =
-    [[0, 0, 0, 0, 0, 0],
-     [0, 0, 1, 1, 0, 0],
-     [0, 1, 0, 0, 1, 0],
-     [0, 0, 1, 0, 1, 0],
-     [0, 0, 0, 1, 0, 0],
-     [0, 0, 0, 0, 0, 0]];
+$world = <<<EOF
 
-return $loaf;
+  xx
+ x  x
+  x x
+   x
+
+EOF;
+
+return igorw\conway\parse($world);

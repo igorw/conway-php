@@ -1,10 +1,11 @@
 <?php
 
-$beehive =
-    [[0, 0, 0, 0, 0, 0],
-     [0, 0, 1, 1, 0, 0],
-     [0, 1, 0, 0, 1, 0],
-     [0, 0, 1, 1, 0, 0],
-     [0, 0, 0, 0, 0, 0]];
+$world = <<<EOF
 
-return $beehive;
+  xx
+ x  x
+  xx
+
+EOF;
+
+return igorw\conway\parse($world);

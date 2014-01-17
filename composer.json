@@ -16,6 +16,6 @@
         "docopt/docopt": "dev-master"
     },
     "autoload": {
-        "files": ["src/conway.php"]
+        "files": ["src/conway.php", "src/parser.php"]
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-$glider =
-    [[0, 0, 0, 0, 0, 0],
-     [0, 0, 1, 0, 0, 0],
-     [0, 0, 0, 1, 0, 0],
-     [0, 1, 1, 1, 0, 0],
-     [0, 0, 0, 0, 0, 0],
-     [0, 0, 0, 0, 0, 0]];
+$world = <<<EOF
 
-return $glider;
+  x
+   x
+ xxx
+
+EOF;
+
+return igorw\conway\parse($world);

@@ -1,10 +1,11 @@
 <?php
 
-$boat =
-    [[0, 0, 0, 0, 0],
-     [0, 1, 1, 0, 0],
-     [0, 1, 0, 1, 0],
-     [0, 0, 1, 0, 0],
-     [0, 0, 0, 0, 0]];
+$world = <<<EOF
 
-return $boat;
+ xx
+ x x
+  x
+
+EOF;
+
+return igorw\conway\parse($world);

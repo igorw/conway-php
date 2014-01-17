@@ -1,9 +1,10 @@
 <?php
 
-$block =
-    [[0, 0, 0, 0],
-     [0, 1, 1, 0],
-     [0, 1, 1, 0],
-     [0, 0, 0, 0]];
+$world = <<<EOF
 
-return $block;
+ xx
+ xx
+
+EOF;
+
+return igorw\conway\parse($world);

@@ -1,10 +1,11 @@
 <?php
 
-$blinker =
-    [[0, 0, 0, 0, 0],
-     [0, 0, 1, 0, 0],
-     [0, 0, 1, 0, 0],
-     [0, 0, 1, 0, 0],
-     [0, 0, 0, 0, 0]];
+$world = <<<EOF
 
-return $blinker;
+  x
+  x
+  x
+
+EOF;
+
+return igorw\conway\parse($world);

@@ -1,11 +1,12 @@
 <?php
 
-$toad =
-    [[0, 0, 0, 0, 0, 0],
-     [0, 0, 0, 0, 0, 0],
-     [0, 0, 1, 1, 1, 0],
-     [0, 1, 1, 1, 0, 0],
-     [0, 0, 0, 0, 0, 0],
-     [0, 0, 0, 0, 0, 0]];
+$world = <<<EOF
 
-return $toad;
+   x
+ x  x
+ x  x
+  x
+
+EOF;
+
+return igorw\conway\parse($world);
