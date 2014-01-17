@@ -77,7 +77,7 @@ foreach (igorw\conway\run($world, $n) as $i => $world) {
     file_put_contents(sprintf("$temp_dir/%05s.gif", $i), $gif);
 }
 
-system(sprintf('gifsicle --delay=100 %s/*.gif > %s',
+system(sprintf('gifsicle --delay=10 %s/*.gif > %s',
     escapeshellarg($temp_dir),
     escapeshellarg($args['<out>'])));
 system(sprintf('rm -rf %s', escapeshellarg($temp_dir)));
