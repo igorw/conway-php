@@ -74,7 +74,7 @@ foreach (igorw\conway\run($world, $n) as $i => $world) {
     imagegif($im);
     $gif = ob_get_clean();
 
-    file_put_contents("$temp_dir/$i.gif", $gif);
+    file_put_contents(sprintf("$temp_dir/%05s.gif", $i), $gif);
 }
 
 system(sprintf('gifsicle --delay=100 %s/*.gif > %s',
