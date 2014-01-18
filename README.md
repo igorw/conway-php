@@ -32,3 +32,7 @@ installed.
 
 * [Conway's Game of Life - Wikipedia](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 * [LifeWiki](http://www.conwaylife.com/wiki/Main_Page)
+
+## Thanks
+
+* [@__edorian](https://github.com/__edorian) for inspiration and hospitality
