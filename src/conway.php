@@ -27,14 +27,9 @@ function alive_neighbours($world, $x, $y)
 
 function cell_generation($world, $x, $y)
 {
-    $value = $world[$y][$x];
     $neighbours = iter\count(alive_neighbours($world, $x, $y));
 
-    if ($value) {
-        return in_array($neighbours, [2, 3]);
-    }
-
-    return 3 === $neighbours;
+    return 3 === $neighbours || ($world[$y][$x] && $neighbours === 2);
 }
 
 function tick($world)
@@ -52,7 +47,7 @@ function tick($world)
 
 function run($world, $n = 1)
 {
-    foreach (iter\range(0, $n-1) as $i) {
+    for ($i = 0; $i < $n - 1; $i++) {
         $world = tick($world);
         yield $i => $world;
     }
@@ -65,10 +60,10 @@ function result($results)
     return $result;
 }
 
-function format_wold($world)
+function format_world($world)
 {
-    foreach ($world as $y => $row) {
-        foreach ($row as $x => $cell) {
+    foreach ($world as $row) {
+        foreach ($row as $cell) {
             yield $cell ? 'x' : ' ';
         }
         yield "\n";
@@ -77,5 +72,5 @@ function format_wold($world)
 
 function print_world($world)
 {
-    echo implode('', iter\toArray(format_wold($world)));
+    echo implode('', iter\toArray(format_world($world)));
 }
