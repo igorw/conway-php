@@ -17,12 +17,11 @@ function neighbours($world, $x, $y)
 
 function alive_neighbours($world, $x, $y)
 {
-    $cell_value = function ($cell) use ($world) {
-        list($x, $y) = $cell;
-        return $world[$y][$x];
-    };
-
-    return iter\filter($cell_value, neighbours($world, $x, $y));
+    foreach (neighbours($world, $x, $y) as $cell) {
+        if ($world[$cell[1]][$cell[0]]) {
+            yield $cell;
+        }
+    }
 }
 
 function cell_generation($world, $x, $y)
