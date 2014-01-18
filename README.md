@@ -2,7 +2,7 @@
 
 Conway's Game of Life in PHP.
 
-![glider logo](doc/glider-logo.gif)
+![glider logo](doc/glider-logo.png)
 
 ## Usage
 
