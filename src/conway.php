@@ -4,30 +4,25 @@ namespace igorw\conway;
 
 use iter;
 
-function neighbours($world, $x, $y)
+function alive_neighbours($world, $x, $y)
 {
+    $i = 0;
+
     for ($yn = $y-1; $yn <= $y+1; $yn++) {
         for ($xn = $x-1; $xn <= $x+1; $xn++) {
-            if (isset($world[$yn][$xn]) && [$x, $y] !== [$xn, $yn]) {
-                yield [$xn, $yn];
+            if (isset($world[$yn][$xn]) && [$x, $y] !== [$xn, $yn] && $world[$yn][$xn]) {
+                $i++;
             }
         }
     }
-}
 
-function alive_neighbours($world, $x, $y)
-{
-    foreach (neighbours($world, $x, $y) as $cell) {
-        if ($world[$cell[1]][$cell[0]]) {
-            yield $cell;
-        }
-    }
+    return $i;
 }
 
 function cell_generation($world, $x, $y)
 {
     $value = $world[$y][$x];
-    $neighbours = iter\count(alive_neighbours($world, $x, $y));
+    $neighbours = alive_neighbours($world, $x, $y);
 
     if ($value) {
         return in_array($neighbours, [2, 3]);
