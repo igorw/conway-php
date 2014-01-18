@@ -18,7 +18,8 @@ function neighbours($world, $x, $y)
 function alive_neighbours($world, $x, $y)
 {
     foreach (neighbours($world, $x, $y) as $cell) {
-        if ($world[$cell[1]][$cell[0]]) {
+        list($x, $y) = $cell;
+        if ($world[$y][$x]) {
             yield $cell;
         }
     }
