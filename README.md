@@ -2,7 +2,7 @@
 
 Conway's Game of Life in PHP.
 
-![glider gun](doc/gosper-glider-gun.gif)
+![glider logo](doc/glider-logo.gif)
 
 ## Usage
 
@@ -22,6 +22,10 @@ idea to provide the number of generations with `-n`.
 
 Note that performance is quite sluggish. On this machine it takes about 30
 seconds to render 300 generations on the standard size grid of 120x50 cells.
+
+Example output:
+
+![glider gun](doc/gosper-glider-gun.gif)
 
 ## Installation
 
