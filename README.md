@@ -32,6 +32,8 @@ installed.
 
 * [Conway's Game of Life - Wikipedia](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 * [LifeWiki](http://www.conwaylife.com/wiki/Main_Page)
+* [Life Lexicon](http://www.argentum.freeserve.co.uk/lex.htm)
+* [Golly](http://golly.sourceforge.net/)
 
 ## Thanks
 
