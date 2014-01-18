@@ -20,7 +20,7 @@ idea to provide the number of generations with `-n`.
 
     $ bin/conway gif -n 300 examples/gosper-glider-gun.php doc/gosper-glider-gun.gif
 
-Note that performance is quite sluggish. On this machine it takes about 40
+Note that performance is quite sluggish. On this machine it takes about 30
 seconds to render 300 generations on the standard size grid of 120x50 cells.
 
 ## Installation
