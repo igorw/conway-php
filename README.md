@@ -35,4 +35,4 @@ installed.
 
 ## Thanks
 
-* [@__edorian](https://github.com/__edorian) for inspiration and hospitality
+* [@__edorian](https://twitter.com/__edorian) for inspiration and hospitality
