@@ -8,8 +8,8 @@ $doc = <<<DOC
 Conway's Game of Life.
 
 Usage:
-  machine run    [--width=WIDTH] [--height=HEIGHT] [-n=INF] [--] <file>
-  machine gif    [--width=WIDTH] [--height=HEIGHT] [-n=INF] [--] <file> <out>
+  machine run [--width=120] [--height=50] [-n=INF] [--] <file>
+  machine gif [--width=120] [--height=50] [-n=INF] [--] <file> <out>
   machine (-h | --help)
 
 Options:
