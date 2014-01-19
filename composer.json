@@ -10,7 +10,6 @@
         }
     ],
     "require": {
-        "nikic/iter": "~1.0"
     },
     "require-dev": {
         "docopt/docopt": "dev-master"

@@ -3,49 +3,9 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "894d5efdb18b315008ea714476582abd",
+    "hash": "81b850cb1d5c4e2333db37d6db433134",
     "packages": [
-        {
-            "name": "nikic/iter",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nikic/iter.git",
-                "reference": "e5fb6d06db546af157c6a763bad8f75d763a8750"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nikic/iter/zipball/e5fb6d06db546af157c6a763bad8f75d763a8750",
-                "reference": "e5fb6d06db546af157c6a763bad8f75d763a8750",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nikita Popov",
-                    "email": "nikic@php.net"
-                }
-            ],
-            "description": "Iteration primitives using generators",
-            "keywords": [
-                "functional",
-                "generator",
-                "iterator"
-            ],
-            "time": "2014-01-01 11:24:57"
-        }
+
     ],
     "packages-dev": [
         {

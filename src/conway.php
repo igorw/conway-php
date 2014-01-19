@@ -2,8 +2,6 @@
 
 namespace igorw\conway;
 
-use iter;
-
 function alive_neighbours($world, $x, $y)
 {
     $i = 0;
@@ -66,5 +64,11 @@ function format_world($world)
 
 function print_world($world)
 {
-    echo implode('', iter\toArray(format_world($world)));
+    $str = '';
+
+    foreach (format_world($world) as $part) {
+        $str .= $part;
+    }
+
+    echo $str;
 }
