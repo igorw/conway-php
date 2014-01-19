@@ -11,14 +11,14 @@ Conway's Game of Life in PHP.
 To run an example, just execute the `run` command and pass the file containing
 the world definition.
 
-    $ bin/conway run examples/gosper-glider-gun.php
+    $ bin/conway run examples/gosper-glider-gun.gol
 
 ## Gif
 
 You can render a run into an animated gif using the `gif` command. It's a good
 idea to provide the number of generations with `-n`.
 
-    $ bin/conway gif -n 300 examples/gosper-glider-gun.php doc/gosper-glider-gun.gif
+    $ bin/conway gif -n 300 examples/gosper-glider-gun.gol doc/gosper-glider-gun.gif
 
 Note that performance is quite sluggish. On this machine it takes about 30
 seconds to render 300 generations on the standard size grid of 120x50 cells.

@@ -1,7 +1,3 @@
-<?php
-
-$world = <<<EOF
-
      x     x
      x     x
      xx   xx
@@ -17,7 +13,3 @@ $world = <<<EOF
      xx   xx
      x     x
      x     x
-
-EOF;
-
-return igorw\conway\parse($world);
