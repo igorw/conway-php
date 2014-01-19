@@ -10,7 +10,7 @@ function alive_neighbours($world, $x, $y)
 
     for ($yn = $y-1; $yn <= $y+1; $yn++) {
         for ($xn = $x-1; $xn <= $x+1; $xn++) {
-            if (isset($world[$yn][$xn]) && [$x, $y] !== [$xn, $yn] && $world[$yn][$xn]) {
+            if (isset($world[$yn][$xn]) && ($x !== $xn || $y !== $yn) && $world[$yn][$xn]) {
                 $i++;
             }
         }
