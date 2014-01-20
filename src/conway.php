@@ -47,7 +47,7 @@ function tick($world)
 
 function run($world, $n = 1)
 {
-    for ($i = 0; $i < $n - 1; $i++) {
+    for ($i = 0; $i < $n; $i++) {
         $world = tick($world);
         yield $i => $world;
     }
