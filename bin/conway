@@ -8,9 +8,10 @@ $doc = <<<DOC
 Conway's Game of Life.
 
 Usage:
-  machine run [--width=120] [--height=50] [-n=INF] [-r] [--] <file>
-  machine gif [--width=120] [--height=50] [-n=INF] [-r] [--] <file> <out>
-  machine (-h | --help)
+  conway run   [--width=120] [--height=50] [-n=INF] [-r] [--] <file>
+  conway gif   [--width=120] [--height=50] [-n=INF] [-r] [--] <file> <out>
+  conway cbase                             [-n=INF] [-r] [--] <file>
+  conway (-h | --help)
 
 Options:
   -h --help         Show this screen.
@@ -52,6 +53,26 @@ if ($args['run']) {
         igorw\conway\print_world($world);
         usleep(50000);
     }
+    exit(0);
+}
+
+if ($args['cbase']) {
+    $width = 40;
+    $height = 16;
+
+    $conn = stream_socket_client('udp://10.0.0.200:1337');
+    foreach (igorw\conway\run($world, $n) as $world) {
+        $frame = '';
+        foreach ($world as $row) {
+            foreach ($row as $cell) {
+                $frame .= $cell ? "\xff\xff\xff" : "\x00\x00\x00";
+            }
+        }
+
+        fwrite($conn, $frame);
+    }
+    fclose($conn);
+
     exit(0);
 }
 
