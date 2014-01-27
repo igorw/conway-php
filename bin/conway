@@ -44,8 +44,8 @@ if ($args['-r']) {
     $world = igorw\conway\parse(file_get_contents($args['<file>']));
 }
 
-foreach (range(0, $height) as $y) {
-    foreach (range(0, $width) as $x) {
+foreach (range(0, $height-1) as $y) {
+    foreach (range(0, $width-1) as $x) {
         if (!isset($world[$y][$x])) {
             $world[$y][$x] = 0;
         }
