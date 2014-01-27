@@ -67,7 +67,7 @@ if ($args['c-base']) {
         $frame = '';
         foreach ($world as $row) {
             foreach ($row as $cell) {
-                $frame .= $cell ? "\xff\xff\xff" : "\x00\x00\x00";
+                $frame .= $cell ? "\xd0\xd0\xd0" : "\x00\x00\x00";
             }
         }
         // fake checksum
