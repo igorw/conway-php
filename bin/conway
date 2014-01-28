@@ -8,9 +8,10 @@ $doc = <<<DOC
 Conway's Game of Life.
 
 Usage:
-  machine run [--width=120] [--height=50] [-n=INF] [-r] [--] <file>
-  machine gif [--width=120] [--height=50] [-n=INF] [-r] [--] <file> <out>
-  machine (-h | --help)
+  conway run    [--width=120] [--height=50] [-n=INF] [-r] [--] <file>
+  conway gif    [--width=120] [--height=50] [-n=INF] [-r] [--] <file> <out>
+  conway c-base                             [-n=INF] [-r] [--] <file>
+  conway (-h | --help)
 
 Options:
   -h --help         Show this screen.
@@ -32,14 +33,19 @@ $width  = isset($args['--width']) ? (int) $args['--width'] : 120;
 $height = isset($args['--height']) ? (int) $args['--height'] : 50;
 $n      = isset($args['-n']) ? (int) $args['-n'] : INF;
 
+if ($args['c-base']) {
+    $width = 40;
+    $height = 16;
+}
+
 if ($args['-r']) {
     $world = require $args['<file>'];
 } else {
     $world = igorw\conway\parse(file_get_contents($args['<file>']));
 }
 
-foreach (range(0, $height) as $y) {
-    foreach (range(0, $width) as $x) {
+foreach (range(0, $height-1) as $y) {
+    foreach (range(0, $width-1) as $x) {
         if (!isset($world[$y][$x])) {
             $world[$y][$x] = 0;
         }
@@ -52,6 +58,25 @@ if ($args['run']) {
         igorw\conway\print_world($world);
         usleep(50000);
     }
+    exit(0);
+}
+
+if ($args['c-base']) {
+    $conn = stream_socket_client('udp://10.0.0.200:1337');
+    foreach (igorw\conway\run($world, $n) as $world) {
+        $frame = '';
+        foreach ($world as $row) {
+            foreach ($row as $cell) {
+                $frame .= $cell ? "\xd0\xd0\xd0" : "\x00\x00\x00";
+            }
+        }
+        // fake checksum
+        $frame .= "\x00\x00\x00\x00";
+        fwrite($conn, $frame);
+        usleep(1000);
+    }
+    fclose($conn);
+
     exit(0);
 }
 
