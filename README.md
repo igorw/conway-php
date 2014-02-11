@@ -31,9 +31,9 @@ Example output:
 
 To run on a Mate Light installation, use the `matelight` command. You must supply the host name including the port.
 
-	$ bin/conway matelight examples/gosper-glider-gun.gol 10.0.0.200:1337
+	$ bin/conway matelight examples/gosper-glider-gun.gol matelight.cbrp3.c-base.org:1337
 
-It will connect over UDP.
+It will connect over UDP and render onto the 40x16 grid.
 
 ## Installation
 
