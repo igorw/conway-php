@@ -10,7 +10,7 @@ Conway's Game of Life.
 Usage:
   conway run    [--width=120] [--height=50] [-n=INF] [-r] [--] <file>
   conway gif    [--width=120] [--height=50] [-n=INF] [-r] [--] <file> <out>
-  conway matelight                          [-n=INF] [-r] [--] <file> <host>
+  conway matelight                          [-n=INF] [-r] [--] <host> <file>
   conway (-h | --help)
 
 Options:
