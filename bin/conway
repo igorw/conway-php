@@ -10,7 +10,7 @@ Conway's Game of Life.
 Usage:
   conway run    [--width=120] [--height=50] [-n=INF] [-r] [--] <file>
   conway gif    [--width=120] [--height=50] [-n=INF] [-r] [--] <file> <out>
-  conway c-base                             [-n=INF] [-r] [--] <file>
+  conway matelight                          [-n=INF] [-r] [--] <file>
   conway (-h | --help)
 
 Options:
@@ -33,7 +33,7 @@ $width  = isset($args['--width']) ? (int) $args['--width'] : 120;
 $height = isset($args['--height']) ? (int) $args['--height'] : 50;
 $n      = isset($args['-n']) ? (int) $args['-n'] : INF;
 
-if ($args['c-base']) {
+if ($args['matelight']) {
     $width = 40;
     $height = 16;
 }
@@ -61,7 +61,7 @@ if ($args['run']) {
     exit(0);
 }
 
-if ($args['c-base']) {
+if ($args['matelight']) {
     $conn = stream_socket_client('udp://10.0.0.200:1337');
     foreach (igorw\conway\run($world, $n) as $world) {
         $frame = '';
