@@ -36,6 +36,8 @@ use the `matelight` command. You must supply the host name including the port.
 
 It will connect over UDP and render onto the 40x16 grid.
 
+Alternate domain: `ml.jaseg.net:1337`.
+
 ## Installation
 
 The `gif` command requires [gifsicle](http://www.lcdf.org/gifsicle/) to be
