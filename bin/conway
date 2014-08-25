@@ -75,7 +75,7 @@ if ($args['matelight']) {
         // fake checksum
         $frame .= "\x00\x00\x00\x00";
         fwrite($conn, $frame);
-        usleep(1000);
+        usleep(100000);
     }
     fclose($conn);
 
